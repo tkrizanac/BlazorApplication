@@ -33,7 +33,7 @@
 
        git clone https://github.com/tkrizanac/BlazorApplication.git
         
-  Both projects and database as well are hosted via docker containers and the easiest way to run everything is by using CMD/PowerShell and executing this (after you routed in BlazorApp directory):
+  Both projects and database as well are hosted via docker containers and the easiest way to run everything is by using CMD/PowerShell and executing this (after you routed in BlazorApplication directory):
 
         docker-compose up
 
