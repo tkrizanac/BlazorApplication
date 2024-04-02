@@ -1,0 +1,531 @@
+[
+  {
+    "id": 1,
+    "Name": "FirstAlert Smoke & CO Detector SC700",
+    "Release Date": "2023-07-14",
+    "Type": "Smoke Detector",
+    "Price": "$39.99",
+    "Image": "1.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-07-14"
+  },
+  {
+    "id": 2,
+    "Name": "AquaTrack Water Meter WM2000",
+    "Release Date": "2022-03-03",
+    "Type": "Water Meter",
+    "Price": "$129.95",
+    "Image": "2.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2027-03-03"
+  },
+  {
+    "id": 3,
+    "Name": "EcoTemp Radiator Thermostat RT300",
+    "Release Date": "2024-02-05",
+    "Type": "Radiator Thermostat",
+    "Price": "$79.99",
+    "Image": "3.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "N/A"
+  },
+  {
+    "id": 4,
+    "Name": "SafeGuard Smoke Detector SDX5",
+    "Release Date": "2023-10-20",
+    "Type": "Smoke Detector",
+    "Price": "$59.99",
+    "Image": "4.png",
+    "Is Smart": "No",
+    "Next Maintenance Date": "2026-10-20"
+  },
+  {
+    "id": 5,
+    "Name": "SmartFlow Water Meter WFM500",
+    "Release Date": "2022-09-22",
+    "Type": "Water Meter",
+    "Price": "$199.00",
+    "Image": "5.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2027-09-22"
+  },
+  {
+    "id": 6,
+    "Name": "CozyHome Radiator Thermostat RT Deluxe",
+    "Release Date": "2023-12-12",
+    "Type": "Radiator Thermostat",
+    "Price": "$99.99",
+    "Image": "6.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "N/A"
+  },
+  {
+    "id": 7,
+    "Name": "Guardian Smoke Alarm GA-10",
+    "Release Date": "2024-01-27",
+    "Type": "Smoke Detector",
+    "Price": "$29.99",
+    "Image": "7.jpeg",
+    "Is Smart": "No",
+    "Next Maintenance Date": "2027-01-27"
+  },
+  {
+    "id": 8,
+    "Name": "AquaTrack Pro Water Meter WM4000",
+    "Release Date": "2022-05-11",
+    "Type": "Water Meter",
+    "Price": "$249.99",
+    "Image": "8.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2027-05-11"
+  },
+  {
+    "id": 9,
+    "Name": "EcoWise Radiator Thermostat RT600i",
+    "Release Date": "2023-08-04",
+    "Type": "Radiator Thermostat",
+    "Price": "$129.95",
+    "Image": "9.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "N/A"
+  },
+  {
+    "id": 20,
+    "Name": "WhisperClean Air Quality Sensor",
+    "Release Date": "2023-04-14",
+    "Type": "Smoke Detector",
+    "Price": "$99.99",
+    "Image": "20.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "N/A"
+  },
+  {
+    "id": 21,
+    "Name": "EcoFlow Smart Leak Detector",
+    "Release Date": "2024-03-15",
+    "Type": "Water Meter",
+    "Price": "$69.99",
+    "Image": "21.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2027-03-15"
+  },
+  {
+    "id": 22,
+    "Name": "CozyHome Window Thermostat WT100",
+    "Release Date": "2023-09-01",
+    "Type": "Other",
+    "Price": "$149.95",
+    "Image": "22.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "N/A"
+  },
+  {
+    "id": 23,
+    "Name": "Guardian CO Detector CDX2",
+    "Release Date": "2024-02-02",
+    "Type": "Smoke Detector",
+    "Price": "$49.99",
+    "Image": "23.jpeg",
+    "Is Smart": "No",
+    "Next Maintenance Date": "2027-02-02"
+  },
+  {
+    "id": 24,
+    "Name": "SmartFlow Plus Water Meter WFMP700",
+    "Release Date": "2022-12-25",
+    "Type": "Water Meter",
+    "Price": "$299.00",
+    "Image": "24.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2027-12-25"
+  },
+  {
+    "id": 25,
+    "Name": "EcoWise Smart Plug Pro",
+    "Release Date": "2023-06-23",
+    "Type": "Other",
+    "Price": "$39.99",
+    "Image": "25.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "N/A"
+  },
+  {
+    "id": 26,
+    "Name": "SafeHouse Carbon Monoxide Alarm CM-X1",
+    "Release Date": "2022-08-10",
+    "Type": "Smoke Detector",
+    "Price": "$79.99",
+    "Image": "26.jpeg",
+    "Is Smart": "No",
+    "Next Maintenance Date": "2025-08-10"
+  },{
+    "id": 27,
+    "Name": "Nest Protect Smoke and CO Alarm",
+    "Release Date": "2023-09-28",
+    "Type": "Smoke Detector",
+    "Price": "$119.99",
+    "Image": "27.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-09-28"
+  },
+  {
+    "id": 28,
+    "Name": "Honeywell Lyric Wi-Fi Water Leak and Freeze Detector",
+    "Release Date": "2023-06-10",
+    "Type": "Water Meter",
+    "Price": "$79.99",
+    "Image": "28.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-06-10"
+  },
+  {
+    "id": 29,
+    "Name": "Philips Hue Radiator Thermostat",
+    "Release Date": "2023-08-15",
+    "Type": "Radiator Thermostat",
+    "Price": "$69.99",
+    "Image": "29.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-08-15"
+  },
+  {
+    "id": 30,
+    "Name": "Guardian \"Eye\" Motion Sensor",
+    "Release Date": "2023-10-05",
+    "Type": "Other",
+    "Price": "$29.99",
+    "Image": "30.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-10-05"
+  },
+  {
+    "id": 31,
+    "Name": "Kidde Worry-Free Smoke Alarm",
+    "Release Date": "2023-07-22",
+    "Type": "Smoke Detector",
+    "Price": "$29.99",
+    "Image": "31.jpeg",
+    "Is Smart": "No",
+    "Next Maintenance Date": "2025-07-22"
+  },
+  {
+    "id": 32,
+    "Name": "Flume Water Monitor",
+    "Release Date": "2023-05-15",
+    "Type": "Water Meter",
+    "Price": "$199.99",
+    "Image": "32.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-05-15"
+  },
+  {
+    "id": 33,
+    "Name": "Tado Smart Radiator Thermostat",
+    "Release Date": "2023-08-30",
+    "Type": "Radiator Thermostat",
+    "Price": "$89.99",
+    "Image": "33.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-08-30"
+  },
+  {
+    "id": 34,
+    "Name": "SimpliSafe Water Sensor",
+    "Release Date": "2023-06-03",
+    "Type": "Water Meter",
+    "Price": "$49.99",
+    "Image": "34.png",
+    "Is Smart": "No",
+    "Next Maintenance Date": "2025-06-03"
+  },
+  {
+    "id": 35,
+    "Name": "EcoNet Controls Z-Wave Water Valve",
+    "Release Date": "2023-09-12",
+    "Type": "Water Meter",
+    "Price": "$149.99",
+    "Image": "35.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-09-12"
+  },
+  {
+    "id": 36,
+    "Name": "Honeywell Home T9 Smart Thermostat",
+    "Release Date": "2023-08-01",
+    "Type": "Radiator Thermostat",
+    "Price": "$169.99",
+    "Image": "36.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-08-01"
+  },
+  {
+    "id": 37,
+    "Name": "Ecolink Z-Wave Plus Flood and Freeze Sensor",
+    "Release Date": "2023-05-20",
+    "Type": "Water Meter",
+    "Price": "$69.99",
+    "Image": "37.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-05-20"
+  },
+  {
+    "id": 38,
+    "Name": "X-Sense Wi-Fi Smoke Detector Alarm",
+    "Release Date": "2023-07-30",
+    "Type": "Smoke Detector",
+    "Price": "$49.99",
+    "Image": "38.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-07-30"
+  },
+  {
+    "id": 39,
+    "Name": "Airthings Wave Plus Radon & Air Quality Monitor",
+    "Release Date": "2023-10-18",
+    "Type": "Other",
+    "Price": "$229.99",
+    "Image": "39.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-10-18"
+  },
+  {
+    "id": 40,
+    "Name": "Flo by Moen Smart Water Detector",
+    "Release Date": "2023-06-15",
+    "Type": "Water Meter",
+    "Price": "$49.99",
+    "Image": "40.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-06-15"
+  },
+  {
+    "id": 41,
+    "Name": "Kidde 10-Year Sealed Battery Smoke Detector",
+    "Release Date": "2023-07-07",
+    "Type": "Smoke Detector",
+    "Price": "$19.99",
+    "Image": "41.png",
+    "Is Smart": "No",
+    "Next Maintenance Date": "2025-07-07"
+  },
+  {
+    "id": 42,
+    "Name": "Everspring Z-Wave Water/Flood Sensor",
+    "Release Date": "2023-05-25",
+    "Type": "Water Meter",
+    "Price": "$39.99",
+    "Image": "42.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-05-25"
+  },
+  {
+    "id": 43,
+    "Name": "ecobee SmartThermostat with Voice Control",
+    "Release Date": "2023-08-25",
+    "Type": "Radiator Thermostat",
+    "Price": "$249.99",
+    "Image": "43.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-08-25"
+  },
+  {
+    "id": 45,
+    "Name": "Roost Smart Water Leak and Freeze Detector",
+    "Release Date": "2023-06-28",
+    "Type": "Water Meter",
+    "Price": "$59.99",
+    "Image": "45.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-06-28"
+  },
+  {
+    "id": 46,
+    "Name": "Samsung SmartThings Water Leak Sensor",
+    "Release Date": "2023-09-05",
+    "Type": "Water Meter",
+    "Price": "$19.99",
+    "Image": "46.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-09-05"
+  },
+  {
+    "id": 47,
+    "Name": "Netatmo Smart Smoke Alarm",
+    "Release Date": "2023-07-18",
+    "Type": "Smoke Detector",
+    "Price": "$99.99",
+    "Image": "47.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-07-18"
+  },
+  {
+    "id": 48,
+    "Name": "Phyn Smart Water Assistant",
+    "Release Date": "2023-08-12",
+    "Type": "Water Meter",
+    "Price": "$299.99",
+    "Image": "48.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-08-12"
+  },
+  {
+    "id": 49,
+    "Name": "Eve Thermo Smart Radiator Valve",
+    "Release Date": "2023-09-20",
+    "Type": "Radiator Thermostat",
+    "Price": "$69.99",
+    "Image": "49.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-09-20"
+  },
+  {
+    "id": 50,
+    "Name": "First Alert Combination Smoke and Carbon Monoxide Alarm",
+    "Release Date": "2023-10-30",
+    "Type": "Smoke Detector",
+    "Price": "$49.99",
+    "Image": "50.jpeg",
+    "Is Smart": "No",
+    "Next Maintenance Date": "2025-10-30"
+  },
+  {
+    "id": 51,
+    "Name": "Rachio Wireless Flow Meter",
+    "Release Date": "2023-07-25",
+    "Type": "Water Meter",
+    "Price": "$129.99",
+    "Image": "51.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-07-25"
+  },
+  {
+    "id": 52,
+    "Name": "Hive Radiator Valve",
+    "Release Date": "2023-08-05",
+    "Type": "Radiator Thermostat",
+    "Price": "$49.99",
+    "Image": "52.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-08-05"
+  },
+  {
+    "id": 53,
+    "Name": "Leeo Smart Alert Smoke/CO Remote Alarm Monitor",
+    "Release Date": "2023-09-15",
+    "Type": "Smoke Detector",
+    "Price": "$29.99",
+    "Image": "53.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-09-15"
+  },
+  {
+    "id": 54,
+    "Name": "Orbit B-hyve Smart Hose Faucet Timer",
+    "Release Date": "2023-06-20",
+    "Type": "Water Meter",
+    "Price": "$59.99",
+    "Image": "54.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-06-20"
+  },
+  {
+    "id": 55,
+    "Name": "Ecobee3 Lite Smart Thermostat",
+    "Release Date": "2023-07-10",
+    "Type": "Radiator Thermostat",
+    "Price": "$149.99",
+    "Image": "55.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-07-10"
+  },
+  {
+    "id": 56,
+    "Name": "D-Link Wi-Fi Water Sensor",
+    "Release Date": "2023-08-22",
+    "Type": "Water Meter",
+    "Price": "$39.99",
+    "Image": "56.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-08-22"
+  },
+  {
+    "id": 57,
+    "Name": "First Alert BRK 3120B Hardwire Dual Photoelectric and Ionization Smoke Alarm",
+    "Release Date": "2023-09-17",
+    "Type": "Smoke Detector",
+    "Price": "$39.99",
+    "Image": "57.jpeg",
+    "Is Smart": "No",
+    "Next Maintenance Date": "2025-09-17"
+  },
+  {
+    "id": 58,
+    "Name": "Honeywell Home T5+ Smart Thermostat",
+    "Release Date": "2023-10-25",
+    "Type": "Radiator Thermostat",
+    "Price": "$99.99",
+    "Image": "58.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-10-25"
+  },
+  {
+    "id": 59,
+    "Name": "Phyn Plus Smart Water Assistant + Shutoff",
+    "Release Date": "2023-06-08",
+    "Type": "Water Meter",
+    "Price": "$699.99",
+    "Image": "59.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-06-08"
+  },
+  {
+    "id": 60,
+    "Name": "Sensative Z-Wave Plus Ultra Thin Door/Window Contact Sensor",
+    "Release Date": "2023-07-03",
+    "Type": "Other",
+    "Price": "$59.99",
+    "Image": "60.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-07-03"
+  },
+  {
+    "id": 61,
+    "Name": "EcoNet Controls EBV105-UMK Z-Wave Water Valve",
+    "Release Date": "2023-08-18",
+    "Type": "Water Meter",
+    "Price": "$119.99",
+    "Image": "61.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-08-18"
+  },
+  {
+    "id": 62,
+    "Name": "Honeywell Home T6 Pro Z-Wave Thermostat",
+    "Release Date": "2023-09-30",
+    "Type": "Radiator Thermostat",
+    "Price": "$129.99",
+    "Image": "62.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-09-30"
+  },
+  {
+    "id": 63,
+    "Name": "Leeo Smart Alert Smoke and Carbon Monoxide Remote Alarm Monitor",
+    "Release Date": "2023-10-12",
+    "Type": "Smoke Detector",
+    "Price": "$49.99",
+    "Image": "63.jpeg",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-10-12"
+  },
+  {
+    "id": 64,
+    "Name": "Ring Alarm Flood and Freeze Sensor",
+    "Release Date": "2023-06-01",
+    "Type": "Water Meter",
+    "Price": "$39.99",
+    "Image": "64.png",
+    "Is Smart": "Yes",
+    "Next Maintenance Date": "2025-06-01"
+  }
+]

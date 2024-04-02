@@ -1,0 +1,185 @@
+﻿@page "/products"
+
+@using Client.Models
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Client.Extensions
+@using Microsoft.AspNetCore.Components.WebAssembly.Hosting
+
+@inject HttpClient Http
+@inject IJSRuntime JsRuntime
+@inject IWebAssemblyHostEnvironment Host
+@inject IConfiguration Configuration
+
+<PageTitle>Blazor Products Page</PageTitle>
+
+<div class="container">
+    <div class="left-side">
+        <h1>Products</h1>
+        <p>Product view with filtering possibilities.</p>
+    </div>
+  
+    <div class="right-side">
+        <div class="input-container price-inputs">
+            <label>
+                From:<input @bind="fromPrice" @bind:event="oninput" class="nosubmit min-price" type="search" placeholder="Min Price">
+            </label>
+           <label>
+                To:<input @bind="toPrice" @bind:event="oninput" class="nosubmit max-price" type="search" placeholder="Max Price">
+           </label>
+        </div>
+        <div class="input-container search-by">
+            <label>Search By:
+                <input @bind="searchName" @bind:event="oninput" class="nosubmit" type="search" placeholder="Name" />
+                <input @bind="searchType" @bind:event="oninput" class="nosubmit" type="search" placeholder="Type" />
+            </label>
+        </div>
+        <div class="form-check radio input-container checkbox-inputs">
+            <label class="form-check-label" for="flexRadioDefault1">
+                <input checked="@isSmart" @onchange="@(() => FilterSmartProducts(true))" class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" /> &nbsp;   Is Smart
+            </label>
+            <label class="form-check-label" for="flexRadioDefault2">
+                <input checked="@(!isSmart)" @onchange="@(() => FilterSmartProducts(false))" class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" /> &nbsp; Not Smart
+            </label>
+        </div>
+    </div>
+
+</div>
+
+@if (!filteredList.Any() && !filteredEmpty)
+{
+    <div class="spinner-container">
+        <div class="spinner"></div>
+    </div>
+}
+else
+{
+    <div class="products-container">
+        @foreach (var product in filteredList)
+        {
+            <div class="product" @onclick="@(() => OpenImageInNewTab(product.Image))">
+                <img src="images/@product.Image" alt="Product @product.Id">
+                <h4>@product.Name</h4>
+                <p class="price">@product.Price</p>
+                <p class="type">@product.Type</p>
+                <p class="normal">Is Smart: <span class="smart">@product.IsSmart</span></p>
+                <a href="/images/@product.Image" target="_blank">Full Image</a>
+            </div>
+        }
+    </div>
+}
+
+@code {
+
+
+    #region Binding Properties
+
+    int? _fromPrice;
+    int? fromPrice
+    {
+        get => _fromPrice;
+        set
+        {
+            _fromPrice = value;
+            FilterProducts();
+        }
+    }
+
+    int? _toPrice;
+    int? toPrice
+    {
+        get => _toPrice;
+        set
+        {
+            _toPrice = value;
+            FilterProducts();
+        }
+    }
+
+    string _searchName;
+    string searchName
+    {
+        get => _searchName;
+        set
+        {
+            _searchName = value;
+            FilterProducts();
+        }
+    }
+
+    string _searchType;
+    string searchType
+    {
+        get => _searchType;
+        set
+        {
+            _searchType = value;
+            FilterProducts();
+        }
+    }
+
+    #endregion
+
+    bool filteredEmpty;
+    bool? isSmart;
+    List<ProductDto> productList = new();
+    List<ProductDto> filteredList = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        HttpResponseMessage result = null;
+
+        try
+        {
+            // If server is online fetch the data form server
+            var serverUrl = Configuration["SERVER_URL"];
+            result = await Http.GetAsync($"{serverUrl}/products");
+
+        }
+        catch (HttpRequestException ex)
+        {
+            // Log error and throw if it is needed
+        }
+
+        if (result is not null && result.IsSuccessStatusCode)
+        {
+            productList = await result.Content.ReadFromJsonAsync<List<ProductDto>>();
+        }
+        else
+        {
+            // IF server is offline fetch data from static JSON file stored in our project
+            productList = await Http.GetFromJsonAsync<List<ProductDto>>($"{Host.BaseAddress}dataset/dataset.json");
+        }
+
+        filteredList = productList;
+    }
+
+    private void FilterSmartProducts(bool isSmartInput)
+    {
+        if (isSmartInput)
+            isSmart = isSmart == true ? null : true;
+        else
+            isSmart = isSmart == false ? null : false;
+
+        FilterProducts();
+    }
+
+    private void FilterProducts()
+    {
+        filteredList = productList
+      .ConditionalWhere(fromPrice.HasValue, x => x.OnlyPrice >= fromPrice)
+      .ConditionalWhere(toPrice > fromPrice.GetValueOrDefault(), x => x.OnlyPrice <= toPrice)
+      .ConditionalWhere(!string.IsNullOrEmpty(searchName), x => x.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase))
+      .ConditionalWhere(!string.IsNullOrEmpty(searchType), x => x.Type.Contains(searchType, StringComparison.OrdinalIgnoreCase))
+      .ConditionalWhere(isSmart == true, x => x.IsSmart == "Yes")
+      .ConditionalWhere(isSmart == false, x => x.IsSmart == "No").ToList();
+
+      // Do not show spinner using this variable if filtered list is 0
+       filteredEmpty = filteredList.Count == 0;
+
+    }
+
+    private async Task OpenImageInNewTab(string image)
+    {
+        await JsRuntime.InvokeVoidAsync("openImageInNewTab", $"/images/{image}");
+    }
+}

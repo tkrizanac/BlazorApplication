@@ -1,0 +1,147 @@
+﻿@page "/"
+
+@using Client.Models
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Client.Extensions
+@using Microsoft.AspNetCore.Components.WebAssembly.Hosting
+
+@inject HttpClient Http
+@inject IWebAssemblyHostEnvironment Host
+@inject IConfiguration Configuration
+
+<PageTitle>Blazor Home Page</PageTitle>
+
+<div class="container">
+    <div class="left-side">
+        <h1>Home</h1>
+        <p>An example of functional datatable for products.</p>
+    </div>
+    <div class="right-side">
+        <div class="input-container price-inputs">
+            <label>
+                From:<input @bind="fromPrice" @bind:event="oninput" class="nosubmit min-price" type="search" placeholder="Min Price">
+            </label>
+            <label>
+                To:<input @bind="toPrice" @bind:event="oninput" class="nosubmit max-price" type="search" placeholder="Max Price">
+            </label>
+        </div>
+        <div class="input-container search-by">
+            <label>
+                Search By:
+                <input @bind="searchName" @bind:event="oninput" class="nosubmit" type="search" placeholder="Name" />
+                <input @bind="searchType" @bind:event="oninput" class="nosubmit" type="search" placeholder="Type" />
+            </label>
+        </div>
+        <div class="form-check radio input-container checkbox-inputs">
+            <label class="form-check-label" for="flexRadioDefault1">
+                <input checked="@isSmart" @onchange="@(() => {isSmart = isSmart == true ? null : true;})" class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" /> &nbsp;   Is Smart
+            </label>
+            <label class="form-check-label" for="flexRadioDefault2">
+                <input checked="@(!isSmart)" @onchange="@(() => { isSmart = isSmart == false ? null : false;})" class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" /> &nbsp; Not Smart
+            </label>
+        </div>
+    </div>
+</div>
+
+@if (!products.Any() && !filteredEmpty)
+{
+    <div class="spinner-container">
+        <div class="spinner"></div>
+    </div>
+}
+else
+{
+    <QuickGrid Items="filteredProducts" Pagination="pagination" Class="table">
+        <PropertyColumn Property="c=> c.Id" Title="Id" Sortable="true" Align="Align.Center"></PropertyColumn>
+        <PropertyColumn Property="p => p.Name" Title="Name" Sortable="true" Align="Align.Center"></PropertyColumn>
+        <TemplateColumn Title="Image" Align="Align.Center">
+                <ChildContent>
+                <a target="_blank" href="images/@context.Image">
+                    <img src="images/@context.Image" width="90" height="75" />
+                </a>
+                </ChildContent>
+         </TemplateColumn>
+        <PropertyColumn Property="p => p.ReleaseDate" Title="Release Date" Sortable="true" Align="Align.Center"></PropertyColumn>
+        <TemplateColumn Title="Price" Align="Align.Center" SortBy="GridSort<ProductDto>.ByAscending(p => p.OnlyPrice)">
+            <ColumnOptions>
+                 <p>Min: <input type="range" @bind="fromPrice" @bind:event="oninput" min="0" max="@rangeMax" /><span>@fromPrice</span></p>
+                <p>Max: <input type="range" @bind="toPrice" @bind:event="oninput" min="0" max="@rangeMax" /><span>@toPrice</span></p>
+            </ColumnOptions>
+            <ChildContent>
+               @context.Price
+            </ChildContent>
+        </TemplateColumn>
+        <PropertyColumn Property="p => p.Type" Title="Type" Sortable="true" Align="Align.Center"></PropertyColumn>
+        <PropertyColumn Property="p => p.IsSmart" Title="Is Smart" Sortable="true" Align="Align.Center"></PropertyColumn>
+        <PropertyColumn Property="p => p.NextMaintenanceDate" Title="Next Maintenance Date" Sortable="true" Align="Align.Center"></PropertyColumn>
+    </QuickGrid>
+    <Paginator State="@pagination"></Paginator>
+}
+
+@code {
+
+    int? fromPrice;
+    int? toPrice;
+    int rangeMin;
+    int rangeMax;
+    bool filteredEmpty;
+    bool? isSmart;
+    string searchName;
+    string searchType;
+    List<ProductDto> products = new();
+    PaginationState pagination = new PaginationState { ItemsPerPage = 20 };
+
+    IQueryable<ProductDto> filteredProducts
+    {
+        get
+        {
+            var result = products.AsQueryable()
+            .ConditionalWhere(fromPrice.HasValue, x => x.OnlyPrice >= fromPrice)
+            .ConditionalWhere(toPrice > fromPrice.GetValueOrDefault(), x => x.OnlyPrice <= toPrice)
+            .ConditionalWhere(!string.IsNullOrEmpty(searchName), x => x.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase))
+            .ConditionalWhere(!string.IsNullOrEmpty(searchType), x => x.Type.Contains(searchType, StringComparison.OrdinalIgnoreCase))
+            .ConditionalWhere(isSmart == true, x => x.IsSmart == "Yes")
+            .ConditionalWhere(isSmart == false, x => x.IsSmart == "No");
+
+            // Do not show spinner using this variable if filtered list is 0
+            filteredEmpty = result.Count() == 0;
+
+            return result;
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        HttpResponseMessage result = null;
+
+        try
+        {
+            // If server is online fetch the data form server
+            var serverUrl = Configuration["SERVER_URL"];
+            result = await Http.GetAsync($"{serverUrl}/products");
+
+        }
+        catch (HttpRequestException ex)
+        {
+            // Log error and throw if it is needed
+        }
+
+        if (result is not null && result.IsSuccessStatusCode)
+        {
+            products = await result.Content.ReadFromJsonAsync<List<ProductDto>>();
+        }
+        else
+        {
+            // IF server is offline fetch data from static JSON file stored in our project
+            products = await Http.GetFromJsonAsync<List<ProductDto>>($"{Host.BaseAddress}dataset/dataset.json");
+        }
+
+        rangeMin = (int)products.Min(x => x.OnlyPrice) + 1;
+        rangeMax = (int)products.Max(x => x.OnlyPrice) + 1;
+    }
+
+    private void SearchByKeyword(string keyword)
+    {
+        products = filteredProducts.Where(x => x.Name.Contains(keyword)).ToList();
+    }
+}

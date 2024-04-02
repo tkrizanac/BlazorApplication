@@ -1,0 +1,40 @@
+version: '3.4'
+
+services:
+  server:
+    image: ${DOCKER_REGISTRY-}server
+    env_file: .env
+    container_name: server
+    depends_on:
+        db:
+            condition: service_healthy
+    build:
+      context: .
+      dockerfile: Server/Dockerfile
+    ports:
+        - 8000:80
+  client:
+    image: ${DOCKER_REGISTRY-}client
+    env_file: .env
+    container_name: client
+    build:
+      context: .
+      dockerfile: Client/Dockerfile
+    ports:
+        - 8080:80
+  db:
+    image: postgres
+    container_name: postgres
+    env_file: .env
+    environment:
+        POSTGRES_DB: "${DB__NAME}"
+        POSTGRES_USER: "${DB__USERNAME}"
+        POSTGRES_PASSWORD: "${DB__PASSWORD}"
+    healthcheck:
+        test: ["CMD", "pg_isready", "-h", "${DB__HOST}", "-d", "${DB__NAME}", "-U", "${DB__USERNAME}"]
+        interval: 1s
+        timeout: 3s
+        retries: 5
+        start_period: 10s
+    ports:
+        - "${DB__PORT}:${DB__PORT}"
