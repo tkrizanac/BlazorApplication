@@ -12,7 +12,7 @@
 ## Front-End
 
    Client part is built in C# front-end framework Blazor Web Assembly. We have 2 available pages: Home and Products. Both of the pages are pointing to the same products and are performing
-   pretty much the same actions except the Home page contains both basic inputs for the price range and the slider for the price range which can be opened by clicking the icon next to the Price title
+   pretty much the same real time actions except the Home page contains both basic inputs for the price range and the slider for the price range which can be opened by clicking the icon next to the Price title
 
    - Home page is built using "QuickGrid" plugin that helps us to render datatable which will also allow us to perform sort and pagination (20 products per page set as default)
    - Products page is built ordinarily without plugins and will display all products by 4 products per row with the most important information for each product.
